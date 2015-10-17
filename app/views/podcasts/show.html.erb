@@ -2,3 +2,5 @@
 <h1><%= @podcast.description %></h1>
 
 <%= link_to "Back", root_path %>
+<%= link_to "Edit", edit_podcast_path %>
+<%= link_to "Delete", podcast_path, method: :delete, data: { confirm: "Are you sure?" } %>

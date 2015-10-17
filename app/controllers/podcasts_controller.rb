@@ -27,14 +27,17 @@ class PodcastsController < ApplicationController
 
   def update
     if @podcast.update(podcast_params)
-      redirect_to @podcast, notice "Podcast was successfully updated"
+       redirect_to @podcast, notice: "Podcast was successfully updated"
     else
       render 'edit'
     end
   end
 
   def destroy
+    @podcast.destroy
+    redirect_to root_path
   end
+
 
   private
 
