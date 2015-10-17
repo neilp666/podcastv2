@@ -1,0 +1,33 @@
+class PodcastsController < ApplicationController
+  before_action :find_podcast, only: [:show, :edit, :update, :destroy]
+
+  def index
+  end
+
+  def show
+  end
+
+  def new
+    @podcast = Podcast.new
+  end
+
+  def create
+    @podcast = Podcast.new(podcast_params)
+
+    if @podcast.save
+      redirect_to @podcast, notice: "Sucessfully created new Podcast"
+    else
+      render 'new'
+    end
+  end
+
+  private
+
+  def podcast_params
+    params.require(:podcast).permit(:title, :description)
+  end
+
+  def find_podcast
+    @podcast = Podcast.find(params[:id])
+  end
+end
