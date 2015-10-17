@@ -2,6 +2,7 @@ class PodcastsController < ApplicationController
   before_action :find_podcast, only: [:show, :edit, :update, :destroy]
 
   def index
+    @podcasts = Podcast.all.order("created_at DESC")
   end
 
   def show
@@ -19,6 +20,20 @@ class PodcastsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def edit
+  end
+
+  def update
+    if @podcast.update(podcast_params)
+      redirect_to @podcast, notice "Podcast was successfully updated"
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
   end
 
   private

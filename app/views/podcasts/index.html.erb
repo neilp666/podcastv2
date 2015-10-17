@@ -1,1 +1,7 @@
-<p>Placeholder</p>
+<% @podcasts.each do |podcast| %>
+<h2>
+  <%= link_to podcast.title, podcast %>
+</h2>
+
+<% end %>
+
