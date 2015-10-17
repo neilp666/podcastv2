@@ -9,11 +9,11 @@ class PodcastsController < ApplicationController
   end
 
   def new
-    @podcast = Podcast.new
+    @podcast = current_user.podcasts.build
   end
 
   def create
-    @podcast = Podcast.new(podcast_params)
+    @podcast = current_user.podcasts.build(podcast_params)
 
     if @podcast.save
       redirect_to @podcast, notice: "Sucessfully created new Podcast"
