@@ -1,10 +1,17 @@
-<div class="col-md-6 col-md-offset-3"></div>
 
-<% @podcasts.each do |podcast| %>
-<h2>
-  <li><%= link_to image_tag(podcast.image.url(:medium)), podcast %></li>
-  <li><%= link_to podcast.title, podcast %></li>
-</h2>
+<div id="pins" class="transitions-enabled">
+  <% @podcasts.each do |podcast| %>
+    <div class="box panel panel-default">
+      <%= link_to image_tag(podcast.image.url), podcast %>
+      <h2>
+        <%= link_to podcast.title, podcast %>
+      </h2>
+      <p class="user">
+        Submitted by
+        <%= podcast.user.email %>
+      </p>
+    </div>
+  <% end %>
+</div>
 
-<% end %>
 
