@@ -2,7 +2,8 @@
 
 <% @podcasts.each do |podcast| %>
 <h2>
-  <%= link_to podcast.title, podcast %>
+  <li><%= link_to image_tag(podcast.image.url(:medium)), podcast %></li>
+  <li><%= link_to podcast.title, podcast %></li>
 </h2>
 
 <% end %>
