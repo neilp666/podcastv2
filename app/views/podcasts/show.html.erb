@@ -1,11 +1,26 @@
+<div class="row" id="pin_show">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-heading pin_image">
+        <%= image_tag @podcast.image.url %>
+      </div>
+      <div class="panel-body">
+        <h1>
+          <%= @podcast.title %>
+        </h1>
+        <p class="description">
+          <%= @podcast.description %>
+        </p>
+      </div>
+      <div class="panel-footer">
+        <div class="row">
+          <div class="col-md-6">
+            <p class="user">
+              Submitted by
+              <%= @podcast.user.email %>
+            </p>
+          </div>
 
-<%= image_tag @podcast.image.url(:medium) %>
-
-<h1><%= @podcast.title %></h1>
-<h1><%= @podcast.description %></h1>
-
-<p>Submitted by:</p>
-<h1><%= @podcast.user.email %></h1>
 
 <%= link_to "Back", root_path %>
 <%= link_to "Edit", edit_podcast_path %>
