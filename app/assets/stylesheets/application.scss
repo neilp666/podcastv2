@@ -120,6 +120,11 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.glyphicon {
+   font-family:'Glyphicons Halflings' !important;
+   // more css comes along here
+}
+
 textarea {
   min-height: 250px;
 }

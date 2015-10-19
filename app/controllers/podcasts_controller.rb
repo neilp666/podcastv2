@@ -1,5 +1,5 @@
 class PodcastsController < ApplicationController
-  before_action :find_podcast, only: [:show, :edit, :update, :destroy]
+  before_action :find_podcast, only: [:show, :edit, :update, :destroy, :upvote]
 
   def index
     @podcasts = Podcast.all.order("created_at DESC")
@@ -36,6 +36,11 @@ class PodcastsController < ApplicationController
   def destroy
     @podcast.destroy
     redirect_to root_path
+  end
+
+  def upvote
+    @podcast.upvote_by current_user
+    redirect_to :back
   end
 
 

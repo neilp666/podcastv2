@@ -20,8 +20,21 @@
               <%= @podcast.user.email %>
             </p>
           </div>
-
-
-<%= link_to "Back", root_path %>
-<%= link_to "Edit", edit_podcast_path %>
-<%= link_to "Delete", podcast_path, method: :delete, data: { confirm: "Are you sure?" } %>
+          <div class="col-md-6">
+            <div class="btn-group pull-right">
+              <%= link_to like_podcast_path(@podcast), method: :put, class: "btn btn-default" do %>
+                <span class="fa fa-heart"></i>
+</span>
+                <%= @podcast.get_upvotes.size %>
+              <% end %>
+              <% if user_signed_in? %>
+                <%= link_to "Edit", edit_podcast_path, class: "btn btn-default" %>
+                <%= link_to "Delete", podcast_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
